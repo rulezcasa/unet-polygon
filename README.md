@@ -109,7 +109,18 @@ Open `inference.ipynb` and follow the interactive prompts to:
 - `red`, `green`, `blue`, `yellow`, `orange`
 - `purple`, `pink`, `black`, `white`, `cyan`, `magenta`
 
-### Graphs and outputs:
+## Graphs and outputs:
+
+### Inference outputs
+<img width="797" height="393" alt="Screenshot 2025-08-04 at 12 08 01 PM" src="https://github.com/user-attachments/assets/2de0b7e7-dc7b-457a-9e24-428fbb639e89" />
+<img width="795" height="396" alt="Screenshot 2025-08-04 at 12 08 32 PM" src="https://github.com/user-attachments/assets/1861a3c4-d52a-4dc4-9f70-88b53f17a087" />
+
+### Grid search graphs :
+<img width="881" height="298" alt="Screenshot 2025-08-04 at 12 09 30 PM" src="https://github.com/user-attachments/assets/cc5ebdc5-6f7a-44a5-be04-b46f0fe72631" />
+
+### Best model :
+<img width="877" height="301" alt="Screenshot 2025-08-04 at 12 09 55 PM" src="https://github.com/user-attachments/assets/bf969f60-41b2-4c83-b3aa-b2d71abfc251" />
+
 
 ## Imporvements for later 
 
