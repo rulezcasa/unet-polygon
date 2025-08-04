@@ -116,6 +116,22 @@ Open `inference.ipynb` and follow the interactive prompts to:
 ### Best model :
 <img width="877" height="301" alt="Screenshot 2025-08-04 at 12 09 55 PM" src="https://github.com/user-attachments/assets/bf969f60-41b2-4c83-b3aa-b2d71abfc251" />
 
+### Evaluation Metric: Masked Pixel Accuracy with Tolerance
+
+**Definition**  
+This metric evaluates the colorization performance specifically **within the polygon regions** of the image. For each pixel inside the ground truth mask:
+
+- It compares the predicted RGB values with the ground truth.
+- A pixel is considered **correct** if **all RGB channels** are within a small absolute difference defined by the `tolerance` (e.g., 0.05 on a [0,1] scale).
+
+**Why this metric?**  
+- It is robust to minor prediction errors in RGB values.  
+- Encourages near-correct color predictions without harsh penalties for slight deviations.  
+- Useful when **exact color match** is less important than perceptual similarity.
+
+**Result**  
+Average Pixel Accuracy (within polygon, tolerance=0.05): **0.8854**
+
 
 ## Imporvements for later 
 
