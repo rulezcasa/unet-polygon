@@ -119,11 +119,11 @@ Open `inference.ipynb` and follow the interactive prompts to:
 
 ## Imporvements for later 
 
-### Would help :
+#### Would help :
 - **Residual Connections**: Add residual connections throughout the network for better gradient flow 
 - **Progressive Training**: Start with low-resolution images and gradually increase resolution
 
-### Might be an overkill since the task is simple
+#### Might be an overkill since the task is simple :
 - **GAN Integration**: Incorporate adversarial training for more realistic colorization results
 - **Attention Mechanisms**: Implement self-attention or cross-attention layers to better capture spatial relationships
 
