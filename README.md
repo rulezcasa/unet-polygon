@@ -63,20 +63,15 @@ Polygon-Unet/
 
 An automated grid search for hyperparameter optimization was employed resulting in 24 sweeps trained for 15 epochs using a multiprocessing pipeline:
 
-### Grid Search Parameters
-```python
-# Learning Rates
-lrs = [1e-4, 3e-4, 1e-3]
+Each hyperparameter was chosen through grid search based on training stability and visual output quality:
 
-# Loss Functions
-losses = ["L1Loss", "MSELoss"]
+| Hyperparameter       | Values Tried                  | Reason for Selection                                              |
+|----------------------|-------------------------------|-------------------------------------------------------------------|
+| **Learning Rate**     | `1e-4`, `3e-4`, `1e-3`         | Balanced convergence speed and stability across trials.           |
+| **Loss Function**     | `L1Loss`, `MSELoss`           | MSE produced smoother and more consistent colorization.           |
+| **Embedding Dimension** | `8`, `16`                   | 16-D embeddings captured more nuanced color differences.          |
+| **Upsampling Method** | `Bilinear`, `TransposedConv` | Bilinear was efficient and avoided checkerboard artifacts.        |
 
-# Embedding Dimensions
-embed_dims = [8, 16]
-
-# Upsampling Methods
-bilinears = [True, False]  # Bilinear vs Transposed Convolution
-```
 
 ### Grid Search Configuration
 - **Total Combinations**: 24 different configurations
