@@ -63,7 +63,7 @@ Polygon-Unet/
 
 An automated grid search for hyperparameter optimization was employed resulting in 24 sweeps trained for 15 epochs using a multiprocessing pipeline:
 
-Each hyperparameter was chosen through grid search based on training stability and visual output quality:
+Each hyperparameter was chosen based on training stability and best loss curves visualized via wandb logs:
 
 | Hyperparameter       | Values Tried                  | Reason for Selection                                              |
 |----------------------|-------------------------------|-------------------------------------------------------------------|
