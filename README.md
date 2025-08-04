@@ -2,6 +2,7 @@
 
 - This repository is the codebase for a simple Unet trained from scratch to colour polygon images. Submitted as an screening assignment for Ayna. 
 - Script files have been appropriately commented to demonstrate the overall logic and flow.
+- Curious to build from scratch, I didnt try out the Hugging Face Diffuser API. It could've been a more stable setup.
 
 ## Overview
 
@@ -15,23 +16,27 @@ The model uses color embeddings to condition the generation process, allowing it
 
 ```
 Polygon-Unet/
-├── train.py              # Main training script with hyperparameter grid search
-├── model.py              # Conditional U-Net architecture implementation
-├── dataset.py            # Custom dataset loader for polygon images
-├── inference.ipynb       # Interactive inference notebook
-├── requirements.txt      # Python dependencies
-├── dataset/              # Training and validation data
+├── train_best.py               # Main training script with the best model config
+├── model.py                    # Conditional U-Net architecture implementation
+├── dataset.py                  # Custom dataset loader for polygon images
+├── inference.ipynb             # Interactive inference notebook
+├── requirements.txt            # Python dependencies
+├── dataset/                    # Training and validation data
 │   ├── training/
-│   │   ├── inputs/       # Input polygon images
-│   │   ├── outputs/      # Target colored images
-│   │   └── data.json     # Metadata mapping inputs to outputs
+│   │   ├── inputs/             # Input polygon images
+│   │   ├── outputs/            # Target colored images
+│   │   └── data.json           # Metadata mapping inputs to outputs
 │   └── validation/
 │       ├── inputs/
 │       ├── outputs/
 │       └── data.json
-├── wandb/                # Weights & Biases logs (auto-generated)
-├── models/               # Saved model checkpoints (auto-generated)
-└── __pycache__/          # Python cache files
+├── hyperparameter_tuning/       
+│   ├── grid_search.py              # multiprocesed grid search pipeline for parameter tuning
+│   └── grid_search_summary.txt     # Summary of parameters
+|
+├── best_model/                     #Best model
+|
+└──── models/                       # Saved models
 ```
 
 ## Architecture
@@ -56,7 +61,7 @@ Polygon-Unet/
 
 ## Hyperparameter Tuning
 
-An automated grid search for hyperparameter optimization was employed resulting in 24 sweeps trained using a multiprocessing pipeline:
+An automated grid search for hyperparameter optimization was employed resulting in 24 sweeps trained for 15 epochs using a multiprocessing pipeline:
 
 ### Grid Search Parameters
 ```python
@@ -82,6 +87,8 @@ bilinears = [True, False]  # Bilinear vs Transposed Convolution
 - **Run name**: Run_{Run_number}_{lr}_{loss_type}_{dim}_billinear{True/False}
 
 ### Best selected hyperparameters
+- Selected based on loss graphs and training stability (R23) and trained for 50 epochs (Noticed a loss plateau around this point).
+
 ```python
     # Best config
     lr = 0.001
@@ -93,7 +100,7 @@ bilinears = [True, False]  # Bilinear vs Transposed Convolution
 
 ## Run Inference
 Open `inference.ipynb` and follow the interactive prompts to:
-- Load a trained model
+- Load the best model
 - Input the path of a polygon image
 - Specify a color
 - Generate the colored output
@@ -101,6 +108,8 @@ Open `inference.ipynb` and follow the interactive prompts to:
 ### Supported Colors
 - `red`, `green`, `blue`, `yellow`, `orange`
 - `purple`, `pink`, `black`, `white`, `cyan`, `magenta`
+
+### Graphs and outputs:
 
 ## Imporvements for later 
 
